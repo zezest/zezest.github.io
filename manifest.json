@@ -1,0 +1,27 @@
+{
+	"name": "ZEZE's Blog",
+	"short_name": "ZEZE",
+	"theme_color": "#007aff",
+	"background_color": "#007aff",
+	"display": "standalone",
+	"start_url": "/?homescreen=1",
+	"orientation": "any",
+	"direction": "auto",
+	"icons": [
+		{
+			"src": "icon-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

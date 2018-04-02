@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 {% include post-head.html %}
 
 <body>
@@ -215,6 +215,13 @@
 
   <script src="/assets/js/prism.js"></script>
   <script src="/assets/js/index.min.js"></script>
+  <script type='text/javascript'>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
 </body>
 
 </html>
