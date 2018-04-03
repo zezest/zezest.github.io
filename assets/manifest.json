@@ -3,7 +3,7 @@
 	"short_name": "ZEZE",
 	"theme_color": "#007aff",
 	"background_color": "#007aff",
-	"display": "standalone",
+	"display": "minimal-ui",
 	"start_url": "/",
 	"orientation": "any",
 	"direction": "auto",
