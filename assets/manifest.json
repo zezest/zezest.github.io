@@ -4,7 +4,8 @@
 	"theme_color": "#007aff",
 	"background_color": "#007aff",
 	"display": "standalone",
-	"start_url": ".",
+	"start_url": "/?homescreen=1",
+	"scope": "/",
 	"orientation": "any",
 	"direction": "auto",
 	"icons": [
