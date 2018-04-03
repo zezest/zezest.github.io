@@ -17,7 +17,9 @@
   <script type='text/javascript'>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('assets/sw.js');
+        console.log(window.location.origin)
+        const origin = window.location.origin;
+        navigator.serviceWorker.register(origin + '/sw.js');
       });
     }
   </script>

@@ -4,12 +4,6 @@ layout: null
 
 var filesToCache = [
   "/",
-  "/assets/favicon.ico",
-  "/assets/manifest.json",
-  "/index.html",
-  "/goLang.html",
-  "/tags.html",
-  "/404.html",
   {% for asset in site.static_files %} {% if asset.path contains '/assets/' %}
   "{{ asset.path }}",
   {% endif %}{% endfor %}
@@ -19,64 +13,47 @@ var filesToCache = [
   {% for page in site.html_pages %}
   "{{ page.url }}",
   {% endfor %}
+  "/index.html",
+  "/goLang.html",
+  "/tags.html",
+  "/404.html"
 ];
 
 var CACHE_NAME = 'zeze-cache-v1';
 
 self.addEventListener('install', function(e) {
   self.skipWaiting();
-
+  console.log('[ServiceWorker] Install');
   // Perform install steps
   e.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      console.log('Opened cache');
+      console.log('[ServiceWorker] Caching app shell');
       return cache.addAll(filesToCache);
     })
   );
 });
 
 self.addEventListener("activate", function(e) {
+  console.log('[ServiceWorker] Activate');
   e.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cacheName) {
           return cacheName.startsWith("zeze-cache-") && cacheName != CACHE_NAME;
         }).map(function(cacheName) {
+          console.log('[ServiceWorker] Removing old cache', key);
           return cache.delete(cacheName);
         })
-      )
-    })
-  )
-});
-
-self.addEventListener("fetch", function(e) {
-  e.respondWith(
-     caches.match(e.request).then(function(response) {
-       return response || fetch(e.request);
-     })
-   )
-});
-
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.match(e.request).then(function(response) {
-        return response || fetch(e.request).then(function(response) {
-          cache.put(e.request, response.clone());
-          return response;
-        });
-      });
+      );
     })
   );
 });
 
 self.addEventListener('fetch', function(e) {
+  console.log('[ServiceWorker] Fetch', e.request.url);
   e.respondWith(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return fetch(e.request).then(function(response) {
-        cache.put(e.request, response.clone());
-        return response;
-      });
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
     })
   );
 });
