@@ -159,7 +159,7 @@
   <script>
     socialShare('.social-share', {
       sites: [
-      {% for i in site.social - share - items %}
+      {% for i in site.social-share-items %}
       '{{ i }}' {% if forloop.last == false %},
       {% endif %} {% endfor %}
       ],
