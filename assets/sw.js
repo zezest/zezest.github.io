@@ -6,7 +6,10 @@ var filesToCache = [
   "/",
   "/assets/favicon.ico",
   "/assets/manifest.json",
-  "/assets/sw.js",
+  "/index.html",
+  "/goLang.html",
+  "/tags.html",
+  "/404.html",
   {% for asset in site.static_files %} {% if asset.path contains '/assets/' %}
   "{{ asset.path }}",
   {% endif %}{% endfor %}
@@ -15,7 +18,6 @@ var filesToCache = [
   {% endfor %}
   {% for page in site.html_pages %}
   "{{ page.url }}",
-  "{{ page.url }}.html",
   {% endfor %}
 ];
 
