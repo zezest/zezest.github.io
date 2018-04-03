@@ -4,6 +4,9 @@ layout: null
 
 var filesToCache = [
   "/",
+  "/assets/favicon.ico",
+  "/assets/manifest.json",
+  "/assets/sw.js",
   {% for asset in site.static_files %} {% if asset.path contains '/assets/' %}
   "{{ asset.path }}",
   {% endif %}{% endfor %}
@@ -12,6 +15,7 @@ var filesToCache = [
   {% endfor %}
   {% for page in site.html_pages %}
   "{{ page.url }}",
+  "{{ page.url }}.html",
   {% endfor %}
 ];
 
@@ -43,7 +47,7 @@ self.addEventListener("activate", function(e) {
   )
 });
 
-self.addEventListener("fetch", function(e){
+self.addEventListener("fetch", function(e) {
   e.respondWith(
      caches.match(e.request).then(function(response) {
        return response || fetch(e.request);
