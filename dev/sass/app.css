@@ -623,10 +623,10 @@ a {
       bottom: 0; }
 
 .markdown-body {
-  font-family: "Merriweather-Light", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   width: 720px;
-  box-sizing: border-box;
-  padding: 0 0 32px; }
+  padding: 0 0 32px;
+  font-family: "Merriweather-Light", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  box-sizing: border-box; }
   .markdown-body .highlight {
     margin: 0 0 16px;
     overflow: scroll; }

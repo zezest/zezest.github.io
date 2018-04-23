@@ -89,3 +89,19 @@ description: 키득키득
 </main>
 
 {% include footer.html %}
+
+<script>
+  $(document).ready(function () {
+    $("a.post-link").click(function () {
+      var name = this.title;
+      // console.log(name.replaceAll(' ', ))
+      ga('send', {
+        hitType: 'click', //이벤트라고 명시
+        eventCategory: 'home', //메인 화면에서 일어나는
+        eventAction: 'post', //메뉴
+        eventLabel: name //카테고리명
+      });
+    });
+  });
+
+</script>

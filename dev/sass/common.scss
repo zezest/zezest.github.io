@@ -542,10 +542,11 @@
 
 // Post style
 .markdown-body {
-    font-family: 'Merriweather-Light', $fonts;
     width: $post-content-w;
-    box-sizing: border-box;
     padding: 0 0 32px;
+    font-family: 'Merriweather-Light', $fonts;
+    box-sizing: border-box;
+
     .highlight {
         margin: 0 0 16px;
         overflow: scroll;
@@ -746,6 +747,7 @@
     .g-banner {
         background-color: $color-dark-primary;
         color: #C8CDD3;
+        
         .header-img {
             -webkit-filter:brightness(.5);
         }
@@ -795,6 +797,7 @@
     .g-sidebar {
         section {
             border-bottom: 1px solid rgba(255, 255, 255, .1);
+
             &:last-child {
                 border-bottom: none;
             }
@@ -829,12 +832,14 @@
     }
     .g-footer {
         border-color: rgba(255, 255, 255, 0.1);
+
         section {
             color: $color-f-dark;
         }
     }
     .post-content {
         background-color: $color-dark-primary;
+
         .post-subtitle {
             &:before, &:after {
                 background-color: #575B63;
@@ -844,6 +849,7 @@
     
     .markdown-body {
         color: $color-f-dark;
+
         img {
             -webkit-filter: brightness(.6);
         }
