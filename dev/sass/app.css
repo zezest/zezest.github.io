@@ -629,7 +629,7 @@ a {
   box-sizing: border-box; }
   .markdown-body .highlight {
     margin: 0 0 16px;
-    overflow: scroll; }
+    overflow: auto; }
   .markdown-body img {
     transition: .3s; }
   .markdown-body ul li p, .markdown-body ol li p {
