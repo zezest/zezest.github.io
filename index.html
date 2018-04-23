@@ -94,7 +94,7 @@ description: 키득키득
   $(document).ready(function () {
     $("a.post-link").click(function () {
       var name = this.title;
-      // console.log(name.replaceAll(' ', ))
+      console.log(name.replace(/ /gi, ''))
       ga('send', {
         hitType: 'click', //이벤트라고 명시
         eventCategory: 'home', //메인 화면에서 일어나는
