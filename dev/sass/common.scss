@@ -116,14 +116,13 @@
         padding-top: 190px;
         line-height: 38px;
         font-size: 42px;
-        font-family: 'Arial', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-        font-weight: bold;
+        font-family: 'NanumSquareR', $fonts;
         letter-spacing: 2px;
         line-height: 52px;
     }
     h3 {
         font-size: 20px;
-        font-weight: normal;
+        font-family: 'NanumSquareR', $fonts;
         letter-spacing: 10px;
         margin-top: 8px;
     }
@@ -193,7 +192,7 @@
         .post-preview {
             position: relative;
             .post-title {
-                font-family: 'Merriweather', $fonts;
+                font-family: 'TmonMonsori', $fonts;
                 color: $color-f-primary;
                 font-size: 24px;
                 line-height: 32px;
@@ -208,7 +207,7 @@
             .post-excerpt {
                 margin-top: 8px;
                 font-size: 16px;
-                font-family: 'Merriweather-Light', $fonts;
+                font-family: 'NanumSquareR', $fonts;
                 line-height: 26px;
             }
         }
@@ -216,8 +215,8 @@
             height: 22px;
             margin-top: 16px;
             .post-tags {
-                float: left;
                 display: inline-block;
+                float: left;
             }
             .post-date {
                 float: right;
@@ -544,7 +543,7 @@
 .markdown-body {
     width: $post-content-w;
     padding: 0 0 32px;
-    font-family: 'Merriweather-Light', $fonts;
+    font-family: 'NanumSquareR', $fonts;
     box-sizing: border-box;
 
     .highlight {

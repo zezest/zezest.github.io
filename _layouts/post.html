@@ -13,7 +13,7 @@
     <div class="post-wrapper">
       <div class="post-tags">
         {% if page.tags.size > 0 %} {% for tag in page.tags %}
-        <a href="{{ " tags# " | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
+        <a href="/tags#{{ tag }}" class="post-tag">{{ tag }}</a>
         {% endfor %} {% endif %}
       </div>
       <h1>{{ page.title }}</h1>
@@ -57,9 +57,9 @@
       <div class="bio">
         <p>{{ site.bio }}</p>
       </div>
-      {% if site.sns.size > 0 %}
+      {% if site.data.sns.size > 0 %}
       <ul class="sns-links">
-        {% for s in site.sns %}
+        {% for s in site.data.sns %}
         <li>
           <a href="{{ s[1] }}" target="_blank" rel="noopener noreferrer">
             <i class="iconfont icon-{{ s[0] }}"></i>

@@ -9,18 +9,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Navigation links
 nav:
   home: '/'
-  goLang: '/goLang.html'
-  tags: '/tags.html'
+  goLang: '/goLang'
+  tags: '/tags'
 
 # Footer
 footer:
   since: 2018
-
-# Author
-author: 'LeeSanghoon'
-nickname: 'ZEZE'
-bio: 'FRONT-END 개발자'
-avatar: '/assets/img/profile.jpg'
 
 # Search
 search: true
@@ -80,7 +74,7 @@ RSS: false
 
 # Permalink
 # See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title
 
 # Plugins
 plugins_dir: [jekyll-paginate]
