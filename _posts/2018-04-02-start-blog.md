@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '2018-03-29 블로그 시작'
+title: '2018-04-02 블로그 시작'
 date: 2018-04-02
 tags: etc
 ---

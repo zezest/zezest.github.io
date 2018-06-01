@@ -9,7 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Navigation links
 nav:
   home: '/'
-  goLang: '/goLang'
+  react: '/react'
   tags: '/tags'
 
 # Footer
