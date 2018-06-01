@@ -13,10 +13,6 @@ var filesToCache = [
   {% for page in site.html_pages %}
   "{{ page.url }}",
   {% endfor %}
-  "/index.html",
-  "/goLang.html",
-  "/tags.html",
-  "/404.html"
 ];
 
 var CACHE_NAME = 'zeze-cache-v1';
