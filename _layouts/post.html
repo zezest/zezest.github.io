@@ -20,7 +20,7 @@
       <div class="post-meta">
         <span class="post-meta-item">
           <i class="iconfont icon-author"></i>
-          <a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+          <a href="{{ site.url }}" target="_blank" rel="author">{% if page.author %}{{ page.author }}{% else %}{{ site.data.author.author }}{% endif %}</a>
         </span>
         <time class="post-meta-item" datetime="{{ page.date | date:" %y-%m-%d " }}">
           <i class="iconfont icon-date"></i>
@@ -51,11 +51,11 @@
   <section class="author-detail">
     <section class="post-footer-item author-card">
       <div class="avatar">
-        <img src="{{ site.avatar | absolute_url }}" alt="">
+        <img src="{{ site.data.author.avatar | absolute_url }}" alt="">
       </div>
-      <div class="author-name" rel="author">{{ site.author }}</div>
+      <div class="author-name" rel="author">{{ site.data.author.author }}</div>
       <div class="bio">
-        <p>{{ site.bio }}</p>
+        <p>{{ site.data.author.bio }}</p>
       </div>
       {% if site.data.sns.size > 0 %}
       <ul class="sns-links">
