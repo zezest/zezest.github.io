@@ -35,8 +35,8 @@ export const MarkdownWrap = styled.div`
   .gatsby-highlight {
     margin-top: 25px;
     margin-bottom: 25px;
-    padding-left: calc(1rem + 15px);
-    padding-right: calc(1rem + 15px);
+    padding-left: 25px;
+    padding-right: 25px;
     color: ${colors.white};
     border-radius: 5px;
     background: ${colors.dark};
@@ -44,6 +44,17 @@ export const MarkdownWrap = styled.div`
     -webkit-overflow-scrolling: touch;
 
     ${media.lessThan('small')} {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5px;
+    }
+    ${media.lessThan('xsmall')} {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
       border-radius: 5px;
     }
   }
@@ -57,7 +68,7 @@ export const MarkdownWrap = styled.div`
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     line-height: 1.5;
     white-space: pre-wrap;
-    word-break: break-word;
+    word-break: break-all;
     hyphens: none;
 
     ${media.lessThan('small')} {
@@ -71,9 +82,18 @@ export const MarkdownWrap = styled.div`
 
   .gatsby-highlight-code-line {
     display: block;
-    margin: -0.125rem calc(-1rem - 15px);
-    padding: 0.125rem calc(1rem + 15px);
+    margin: -0.125rem -25px;
+    padding: 0.125rem 25px;
     background-color: ${prismColors.lineHighlight};
+
+    ${media.lessThan('small')} {
+      margin: -0.125rem -20px;
+      padding: 0.125rem 20px;
+    }
+    ${media.lessThan('xsmall')} {
+      margin: -0.125rem -10px;
+      padding: 0.125rem 10px;
+    }
   }
 
   a:not(.anchor):not(.gatsby-resp-image-link) {

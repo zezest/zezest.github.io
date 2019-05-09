@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2.625rem;
+    font-size: 1.925rem;
   }
 
   h2 {
@@ -38,6 +38,14 @@ export const GlobalStyle = createGlobalStyle`
 
   h4 {
     font-size: 1.125rem;
+  }
+  
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.975rem;
   }
 
   a {
@@ -63,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Main = styled.main`
-  max-width: 550px;
+  max-width: 620px;
   margin: 0 auto;
   padding: 0px 1.5rem 5rem;
 `

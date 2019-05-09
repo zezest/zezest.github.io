@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import parser from 'react-html-parser'
 
 import Layout from 'components/Layout'
 import SEO from 'components/seo'
@@ -18,9 +17,7 @@ const DevLog = ({ data }) => {
       <h1>{post.frontmatter.title}</h1>
       <p>{post.fields.date}</p>
       
-      <MarkdownPage html={post.html}>
-        {/* {parser(post.html)} */}
-      </MarkdownPage>
+      <MarkdownPage html={post.html} />
     </Layout>
   )
 }

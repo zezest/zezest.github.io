@@ -1,14 +1,15 @@
 import React from 'react'
 
+import parser from 'components/HtmlParser'
+
 import { MarkdownWrap } from './styled'
 
 const MarkdownPageComponent = ({
   html,
-  children
 }) => {
   return (
-    <MarkdownWrap dangerouslySetInnerHTML={{__html: html}}>
-      {/* {children} */}
+    <MarkdownWrap>
+      {parser(html)}
     </MarkdownWrap>
   )
 }
