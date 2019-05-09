@@ -21,14 +21,26 @@ const prismColors = {
 }
 
 export const MarkdownWrap = styled.div`
-  .anchor {
-    float: none;
-    padding-right: 0;
-
-    > svg {
-      visibility: visible;
+  > h1, 
+  > h2,
+  > h3,
+  > h4,
+  > h5 {
+    display: flex;
+    position: relative;
+    
+    .anchor {
+      float: none;
+      padding-right: 0;
+      margin-left: 0;
       position: relative;
-      right: 5px;
+
+      > svg {
+        position: absolute;
+        top: 50%;
+        left: -24px;
+        transform: translateY(-50%);
+      }
     }
   }
 
