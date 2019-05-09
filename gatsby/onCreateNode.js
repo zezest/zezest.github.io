@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict'
-
 const path = require('path')
 
 // Parse date information out of devlog post filename.

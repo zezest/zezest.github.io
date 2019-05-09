@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
-'use strict'
-
 const {resolve} = require('path')
 
 module.exports = async ({ graphql, actions }) => {
@@ -50,20 +42,11 @@ module.exports = async ({ graphql, actions }) => {
   posts.forEach(({ node }, idx) => {
     const slug = node.fields.slug
 
-    if (slug === 'docs/error-decoder.html') {
-      // No-op so far as markdown templates go.
-      // Error codes are managed by a page in src/pages
-      // (which gets created by Gatsby during a separate phase).
-    } else if (slug.includes('devlog/')) {
-      let template
-      if (slug.includes('devlog/')) {
-        template = devLogTemplate
-      }
-
+    if (slug.includes('devlog/')) {
       const createArticlePage = path =>
         createPage({
           path: path,
-          component: template,
+          component: devLogTemplate,
           context: {
             slug,
             prev: idx === 0 ? null : posts[idx - 1],

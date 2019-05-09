@@ -2,35 +2,31 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import parser from 'react-html-parser'
 
+import Layout from 'components/Layout'
 import SEO from 'components/seo'
+import MarkdownPage from 'components/MarkdownPage'
 
 const DevLog = ({ data }) => {
   const { markdownRemark: post } = data
   
-  console.log(data)
-
   return (
-    <div>
+    <Layout>
       <SEO
         title={`${post.frontmatter.title} - ZEZE's blog`}
-        keywords={[`test`]}
-      />
+        keywords={[`test`]} />
+        
       <h1>{post.frontmatter.title}</h1>
       <p>{post.fields.date}</p>
-      {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-      <div>{parser(post.html)}</div>
-    </div>
+      
+      <MarkdownPage html={post.html}>
+        {/* {parser(post.html)} */}
+      </MarkdownPage>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query TemplateDevLogMarkdown($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html

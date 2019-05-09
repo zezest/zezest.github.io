@@ -39,18 +39,18 @@ export default AllBlogPosts
 export const pageQuery = graphql`
   query AllBlogPostsPageQuery {
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/devlog/"}}
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/devlog/" } }
+      sort: { fields: [fields___date], order: DESC }
     ) {
       edges {
         node {
           id
-          frontmatter {
-            title
-          }
           fields {
             date(formatString: "YYYY년 MM월 DD일")
             slug
+          }
+          frontmatter {
+            title
           }
         }
       }

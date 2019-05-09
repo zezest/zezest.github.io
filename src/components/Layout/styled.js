@@ -2,60 +2,68 @@ import styled, { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import { withPrefix } from 'gatsby'
 
+import { media } from 'utils/theme'
+
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
     font-family: 'Spoqa Han Sans', 'Sans-serif';
-    -ms-text-size-adjust: 100%;
+    font-weight: 400;
+    box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
-  }
-  body {
-    background: url(${withPrefix('/images/pattern.svg')}) repeat;
+    -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  body {
+    /* background: url(${withPrefix('/images/pattern.svg')}) repeat; */
+  }
 
-  code {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
+  h1, h2, h3, b, strong {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2.625rem;
+  }
+
+  h2 {
+    font-size: 1.625rem;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  i, 
+  em {
+    font-style: italic;
   }
 
   tt,
   code {
-    background-color: hsla(0, 0%, 0%, 0.04);
-    border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
-      "Liberation Mono", Menlo, Courier, monospace;
     padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
   }
-  pre code {
-    background: none;
-    line-height: 1.42;
-  }
-  code:before,
-  code:after,
-  tt:before,
-  tt:after {
-    letter-spacing: -0.2em;
-    content: " ";
-  }
-  pre code:before,
-  pre code:after,
-  pre tt:before,
-  pre tt:after {
-    content: "";
-  }
-
-  @media only screen and (max-width: 480px) {
+  
+  ${media.lessThan('xsmall')} {
     html {
       font-size: 100%;
     }
   }
 `
 
-export const Wrap = styled.div`
-
+export const Main = styled.main`
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 0px 1.5rem 5rem;
 `
