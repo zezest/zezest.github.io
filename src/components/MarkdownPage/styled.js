@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import hex2rgba from 'hex2rgba'
 
-import { media, colors } from 'utils/theme'
+import { media } from 'src/theme'
 
 const prismColors = {
   char: '#D8DEE9',
   comment: '#B2B2B2',
   keyword: '#c5a5c5',
-  lineHighlight: '#353b45', // colors.dark + extra lightness
+  lineHighlight: '#353b45',
   primitive: '#5a9bcf',
   string: '#8dc891',
   variable: '#d7deea',
@@ -49,9 +49,9 @@ export const MarkdownWrap = styled.div`
     margin-bottom: 25px;
     padding-left: 25px;
     padding-right: 25px;
-    color: ${colors.white};
+    color: ${props => props.theme.white};
     border-radius: 5px;
-    background: ${colors.dark};
+    background: ${props => props.theme.codeBg};
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -109,18 +109,17 @@ export const MarkdownWrap = styled.div`
   }
 
   a:not(.anchor):not(.gatsby-resp-image-link) {
-    color: ${colors.text};
-    border-bottom: 1px solid ${hex2rgba(colors.black, 0.2)};
-    background-color: ${hex2rgba(colors.brandLight, 0.3)};
+    color: ${props => props.theme.textHighlight};
+    border-bottom: 1px solid ${props => hex2rgba(props.theme.textHighlight, 0.4)};
+    transition: color 500ms ease, border-bottom 500ms ease;
 
     &:hover {
-      border-bottom-color: ${colors.text};
-      background-color: ${colors.brandLight};
+      border-bottom: 0;
     }
   }
 
   > p:first-child {
-    color: ${colors.subtle};
+    color: ${props => props.theme.subtle};
     font-size: 18px;
     font-weight: 300;
 
@@ -161,8 +160,9 @@ export const MarkdownWrap = styled.div`
 
   p > code,
   li > code {
-    color: ${colors.text};
-    background: ${hex2rgba(colors.note, 0.3)};
+    color: ${props => props.theme.text};
+    background: ${props => hex2rgba(props.theme.note, 0.3)};
+    transition: color 500ms ease;
   }
 
   p > a,
@@ -192,8 +192,8 @@ export const MarkdownWrap = styled.div`
     margin-top: 40px;
     margin-bottom: -1px;
     border: none;
-    border-bottom: 1px solid ${colors.divider};
-
+    border-bottom: 1px solid ${props => hex2rgba(props.theme.divider, 0.2)};
+    
     &:first-child {
       margin-top: 0;
     }
@@ -201,32 +201,14 @@ export const MarkdownWrap = styled.div`
 
   h1 {
     line-height: 1.2;
-
-    /* ${media.size('xsmall')} {
-      font-size: 30px;
-    } */
-
-    /* ${media.between('small', 'large')} {
-      font-size: 45px;
-    }
-
-    ${media.greaterThan('xlarge')} {
-      font-size: 60px;
-    } */
   }
 
   h2 {
     margin-top: 35px;
     padding-top: 40px;
     line-height: 1.2;
-    border-top: 1px solid ${colors.divider};
-
-    /* ${media.lessThan('large')} {
-      font-size: 20px;
-    }
-    ${media.greaterThan('xlarge')} {
-      font-size: 35px;
-    } */
+    border-top: 1px solid ${props => hex2rgba(props.theme.divider, 0.2)};
+    transition: color 500ms ease, border-top 500ms ease;
   }
 
   hr + h2 {
@@ -241,11 +223,6 @@ export const MarkdownWrap = styled.div`
       word-break: break-word;
       overflow-wrap: break-word;
     }
-
-    /* ${media.greaterThan('xlarge')} {
-      font-size: 25px;
-      line-height: 1.3;
-    } */
   }
 
   h2 + h3,
@@ -255,9 +232,6 @@ export const MarkdownWrap = styled.div`
 
   h4 {
     padding-top: 30px;
-    /* color: ${colors.subtle}; */
-    /* font-size: 20px; */
-    /* font-weight: 400; */
     line-height: 1.3;
   }
 
@@ -269,7 +243,7 @@ export const MarkdownWrap = styled.div`
   ul {
     margin-top: 20px;
     padding-left: 20px;
-    color: ${colors.text};
+    color: ${props => hex2rgba(props.theme.text, 0.85)};
     font-size: 16px;
 
     p {
@@ -310,9 +284,9 @@ export const MarkdownWrap = styled.div`
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 20px 45px 20px 26px;
-    border-left: 9px solid ${colors.note};
+    border-left: 9px solid ${props => props.theme.note};
     border-radius: 5px;
-    background-color: ${hex2rgba(colors.note, 0.2)};
+    background-color: ${props => hex2rgba(props.theme.note, 0.2)};
 
     p {
       margin-top: 15px;

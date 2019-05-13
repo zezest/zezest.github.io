@@ -7,7 +7,7 @@ import SEO from 'components/seo'
 const AllBlogPosts = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   const postsData = edges.map(edge => edge.node)
-  console.log(postsData)
+
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />

@@ -1,13 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import { withPrefix } from 'gatsby'
+import hex2rgba from 'hex2rgba'
 
-import { media } from 'utils/theme'
+import { media } from 'src/theme'
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
+    color: ${props => props.theme.text};
     font-family: 'Spoqa Han Sans', 'Sans-serif';
     font-weight: 400;
     box-sizing: border-box;
@@ -18,10 +20,14 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     /* background: url(${withPrefix('/images/pattern.svg')}) repeat; */
+    background-color: ${props => props.theme.main.bg};
+    transition: background-color 500ms ease;
   }
 
   h1, h2, h3, b, strong {
+    color: ${props => hex2rgba(props.theme.text, 0.95)};
     font-weight: 700;
+    transition: color 500ms ease;
   }
 
   h1 {
@@ -46,6 +52,12 @@ export const GlobalStyle = createGlobalStyle`
 
   h6 {
     font-size: 0.975rem;
+  }
+
+  p, 
+  li {
+    color: ${props => hex2rgba(props.theme.text, 0.85)};
+    transition: color 500ms ease;
   }
 
   a {

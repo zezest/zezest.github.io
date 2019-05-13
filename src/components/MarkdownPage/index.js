@@ -1,4 +1,5 @@
 import React from 'react'
+import { withTheme } from 'styled-components'
 
 import parser from 'components/HtmlParser'
 
@@ -14,4 +15,4 @@ const MarkdownPageComponent = ({
   )
 }
 
-export default MarkdownPageComponent
+export default withTheme(MarkdownPageComponent)
