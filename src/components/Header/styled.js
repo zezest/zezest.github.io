@@ -1,14 +1,26 @@
 import styled, { css } from 'styled-components'
 
+import { media } from 'src/theme'
+
 export const Header = styled.header`
   display: flex;
-  width: 100%;
-  max-width: 960px;
   height: 100px;
   margin: 0 auto;
-  margin-bottom: 1.45rem;
+  padding: 0 20px;
   align-items: center;
   justify-content: space-between;
+
+  ${media.lessThan('small')} {
+    height: 60px;
+  }
+ 
+  ${media.greaterThan('medium')} {
+    width: 90%;
+  }
+
+  ${media.greaterThan('xxlarge')} {
+    max-width: 1260px;
+  }
 `
 
 export const Logo = styled.h1`

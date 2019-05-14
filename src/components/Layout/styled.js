@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 0.975rem;
   }
 
-  p, 
+  p,
   li {
     color: ${props => hex2rgba(props.theme.text, 0.85)};
     transition: color 500ms ease;
@@ -83,7 +83,6 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Main = styled.main`
-  max-width: 620px;
-  margin: 0 auto;
-  padding: 0px 1.5rem 5rem;
+  display: flex;
+  padding-top: 1.45rem;
 `

@@ -209,6 +209,12 @@ export const MarkdownWrap = styled.div`
     line-height: 1.2;
     border-top: 1px solid ${props => hex2rgba(props.theme.divider, 0.2)};
     transition: color 500ms ease, border-top 500ms ease;
+
+    &:first-child {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 
   hr + h2 {

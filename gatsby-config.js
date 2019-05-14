@@ -12,6 +12,7 @@ module.exports = {
         src: `${__dirname}/src`,
         pages: `${__dirname}/src/pages`,
         components: `${__dirname}/src/components`,
+        utils: `${__dirname}/src/utils`,
       },
     },
     `gatsby-plugin-styled-components`,

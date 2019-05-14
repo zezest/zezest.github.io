@@ -27,6 +27,7 @@ module.exports = {
     main: {
       bg: '#F5F8F8',
       title: '#3b6ef9',
+      list: '#e6eeee',
     },
     codeBg: '#282c34',
     darker: '#20232a',
@@ -41,6 +42,7 @@ module.exports = {
     main: {
       bg: '#3f3f4c',
       title: '#bf9fe0',
+      list: '#4b4b5a',
     },
     codeBg: '#282c34',
     darker: '#20232a',
