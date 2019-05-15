@@ -5,8 +5,8 @@ module.exports = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [
-        resolve(__dirname, '../src'),
-        resolve(__dirname, '../node_modules'),
+        resolve(__dirname, '../../src'),
+        resolve(__dirname, '../../node_modules'),
       ],
     },
     // See https://github.com/FormidableLabs/react-live/issues/5

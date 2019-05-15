@@ -6,7 +6,7 @@ module.exports = async ({ graphql, actions }) => {
   // Used to detect and prevent duplicate redirects
   const redirectToSlugMap = {}
 
-  const devLogTemplate = resolve(__dirname, '../src/templates/devlog.js')
+  const devLogTemplate = resolve(__dirname, '../../src/templates/devlog.js')
 
   // Redirect /index.html to root.
   createRedirect({

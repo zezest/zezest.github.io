@@ -1,55 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+import { withTheme } from 'styled-components'
 import { graphql } from 'gatsby'
-import hex2rgba from 'hex2rgba'
-import styled from 'styled-components'
+
+import buildToc from 'utils/toc'
 
 import Layout from 'components/Layout'
 import SEO from 'components/seo'
 import MarkdownPage from 'components/MarkdownPage'
-import PostList from 'components/PostList'
+import PostMenu from 'components/PostMenu'
 
-import { media } from 'src/theme'
+import { Wrap, Post, Title, Date } from './styled'
 
-const Wrap = styled.div`
-  display: flex;
-  margin: 0 auto;
-  padding: 0px 20px 5rem;
-
-  ${media.greaterThan('xxlarge')} {
-    max-width: 1260px;
-  }
-  
-  ${media.greaterThan('medium')} {
-    width: 90%;
-    justify-content: space-between;
-  }
-`
-
-const Post = styled.article`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  justify-content: flex-start;
-  align-items: stretch;
-  max-width: 700px;
-`
-
-const Title = styled.h1`
-  margin-bottom: 15px;
-  line-height: 35px;
-`
-
-const Date = styled.p`
-  padding-bottom: 25px;
-  margin-bottom: 30px;
-  transition: color 500ms ease;
-`
-
-const DevLog = ({ data }) => {
+const DevLog = ({
+  data, theme,
+}) => {
+  const [tocs, setToc] = useState([])
+  const mdDom = useRef(null)
   const posts = data.allMarkdownRemark.edges
   const post = data.markdownRemark
+
+  useEffect(() => {
+    const isDark = theme.isDark.toString()
+    if (isDark === localStorage.getItem('dark')) {
+
+      const newToc = new buildToc(mdDom.current, {
+        selector: 'h1,h2,h3,h4',
+      })
+
+      setToc(newToc)
+    }
+  }, [theme.isDark])
 
   return (
     <Layout>
@@ -62,10 +42,10 @@ const DevLog = ({ data }) => {
           <Title>{post.frontmatter.title}</Title>
           <Date>{post.fields.date}</Date>
           
-          <MarkdownPage html={post.html} />
+          <MarkdownPage mdRef={mdDom} html={post.html} />
         </Post>
 
-        <PostList list={posts} active={post.id} />
+        <PostMenu posts={posts} tocs={tocs} active={post.id} />
       </Wrap>
     </Layout>
   )
@@ -94,6 +74,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      timeToRead,
       excerpt(pruneLength: 500)
       frontmatter {
         title
@@ -106,4 +87,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default DevLog
+export default withTheme(DevLog)

@@ -20,7 +20,7 @@ const prismColors = {
   operator: '#fc929e',
 }
 
-export const MarkdownWrap = styled.div`
+export default styled.div`
   > h1, 
   > h2,
   > h3,
@@ -30,23 +30,16 @@ export const MarkdownWrap = styled.div`
     position: relative;
     
     .anchor {
+      float: none;
       padding-right: 0;
       margin-left: 0;
       position: relative;
 
       > svg {
-        fill: ${props => hex2rgba(props.theme.text, 0.85)};
-        visibility: visible;
         position: absolute;
         top: 50%;
         left: -24px;
         transform: translateY(-50%);
-      }
-
-      &:hover {
-        > svg {
-          fill: ${props => props.theme.text};
-        }
       }
     }
   }

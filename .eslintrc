@@ -10,7 +10,8 @@
   "rules": {
     "relay/graphql-naming": 0,
     "max-len": 0,
-    "semi": 0
+    "semi": 0,
+    "no-console": 0
   },
   "env": {
     "node": true,
