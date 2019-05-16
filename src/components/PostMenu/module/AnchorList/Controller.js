@@ -22,6 +22,7 @@ export default AnchorListComponent => {
 
     useEffect(() => {
       if (Object.keys(pos).length > 0) {
+        handleScroll()
         window.addEventListener('scroll', handleScroll)
 
         return () => {

@@ -8,11 +8,14 @@ import { media } from 'src/theme'
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
+  * {
+    box-sizing: border-box;
+  }
+
   html {
     color: ${props => props.theme.text};
     font-family: 'Spoqa Han Sans', 'Sans-serif';
     font-weight: 400;
-    box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -57,6 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   p,
   li {
     color: ${props => hex2rgba(props.theme.text, 0.85)};
+    word-break: break-word;
     transition: color 500ms ease;
   }
 
@@ -84,5 +88,15 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Main = styled.main`
   display: flex;
-  padding-top: 1.45rem;
+  margin: 0 auto;
+  padding: 0 20px 5rem;
+  align-items: center;
+ 
+  ${media.greaterThan('medium')} {
+    width: 90%;
+  }
+
+  ${media.greaterThan('large')} {
+    max-width: 1000px;
+  }
 `

@@ -29,6 +29,10 @@ module.exports = {
       title: '#3b6ef9',
       list: '#e6eeee',
     },
+    hero: {
+      bg: '#3b6ef9',
+      text: '#F5F8F8',
+    },
     codeBg: '#282c34',
     darker: '#20232a',
     textHighlight: '#3b6ef9',
@@ -43,6 +47,10 @@ module.exports = {
       bg: '#3f3f4c',
       title: '#bf9fe0',
       list: '#4b4b5a',
+    },
+    hero: {
+      bg: '#bf9fe0',
+      text: '#3f3f4c',
     },
     codeBg: '#282c34',
     darker: '#20232a',

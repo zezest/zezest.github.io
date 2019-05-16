@@ -3,15 +3,9 @@ import { media } from 'src/theme'
 
 export const Wrap = styled.div`
   display: flex;
-  margin: 0 auto;
-  padding: 0px 20px 5rem;
+  width: 100%;
 
-  ${media.greaterThan('xxlarge')} {
-    max-width: 1260px;
-  }
-  
   ${media.greaterThan('medium')} {
-    width: 90%;
     justify-content: space-between;
   }
 `
@@ -24,7 +18,7 @@ export const Post = styled.article`
   flex-basis: auto;
   justify-content: flex-start;
   align-items: stretch;
-  max-width: 700px;
+  max-width: 750px;
 `
 
 export const Title = styled.h1`

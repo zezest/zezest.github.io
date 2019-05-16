@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components'
 
-import parser from 'utils/HtmlParser'
+// import parser from 'utils/HtmlParser'
 
 import { MarkdownWrap } from './styled'
 

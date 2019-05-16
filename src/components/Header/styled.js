@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import hex2rgba from 'hex2rgba'
 
 import { media } from 'src/theme'
 
@@ -18,12 +19,17 @@ export const Header = styled.header`
     width: 90%;
   }
 
-  ${media.greaterThan('xxlarge')} {
-    max-width: 1260px;
+  ${media.greaterThan('large')} {
+    max-width: 1000px;
   }
 `
 
 export const Logo = styled.h1`
+
+  svg {
+    fill: ${props => hex2rgba(props.theme.text, 0.95)};
+    stroke: ${props => hex2rgba(props.theme.text, 0.95)};
+  }
 `
 
 

@@ -21,7 +21,7 @@ const PostMenuComponent = ({
           <Btn
             isActive={tab === 'post'}
             onClick={onClickToTab.bind(null, 'post')}>
-            List
+            post
           </Btn>
           <Btn
             isActive={tab === 'anchor'}

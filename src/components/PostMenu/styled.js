@@ -15,7 +15,7 @@ export const Wrap = styled.div`
   }
 
   ${media.greaterThan('largerSidebar')} {
-    flex: 0 0 300px;
+    flex: 0 0 250px;
   }
 `
 
@@ -44,6 +44,6 @@ export const Btn = styled.button`
   opacity: ${props => props.isActive ? 1 : 0.6};
 
   ${media.greaterThan('largerSidebar')} {
-    width: 150px;
+    width: 125px;
   }
 `
