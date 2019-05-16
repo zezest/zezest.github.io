@@ -8,8 +8,13 @@ module.exports = ({ stage, actions }) => {
         resolve(__dirname, '../../src'),
         resolve(__dirname, '../../node_modules'),
       ],
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      },
     },
     // See https://github.com/FormidableLabs/react-live/issues/5
-    plugins: [new webpack.IgnorePlugin(/^(xor|props)$/)],
+    plugins: [
+      new webpack.IgnorePlugin(/^(xor|props)$/),
+    ],
   })
 }

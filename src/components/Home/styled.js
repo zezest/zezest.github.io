@@ -26,7 +26,6 @@ export const Hero = styled.div`
     display: inline-block;
     color: ${props => props.theme.hero.text};
     font-weight: 700;
-    text-transform: uppercase;
     z-index: 1;
   }
 
@@ -113,7 +112,7 @@ export const Item = styled.li`
 
   > a {
     display: flex;
-    min-height: 210px;
+    
     padding: 20px;
     justify-content: center;
     align-items: center;
@@ -125,6 +124,12 @@ export const Item = styled.li`
     &:hover {
       box-shadow: 0 0 7px 3px ${props => hex2rgba(props.theme.hero.bg, 0.5)};
       transition: box-shadow 200ms ease;
+    }
+  }
+
+  ${media.greaterThan('mobile')} {
+    > a {
+      min-height: 210px;
     }
   }
 `

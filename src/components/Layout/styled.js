@@ -8,13 +8,30 @@ import { media } from 'src/theme'
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
+  @font-face {
+    font-family: 'NanumSquare';
+    font-weight: 700;
+    src: local('NanumSquareEB'),
+      url(${withPrefix('fonts/NanumSquareEB.woff2')}) format('woff2'),
+      url(${withPrefix('fonts/NanumSquareEB.woff')}) format('woff'),
+      url(${withPrefix('fonts/NanumSquareEB.ttf')}) format('truetype');
+  }
+  @font-face {
+    font-family: 'NanumSquare';
+    font-weight: 400;
+    src: local('NanumSquareR'),
+      url(${withPrefix('fonts/NanumSquareR.woff2')}) format('woff2'),
+      url(${withPrefix('fonts/NanumSquareR.woff')}) format('woff'),
+      url(${withPrefix('fonts/NanumSquareR.ttf')}) format('truetype');
+  }
+
   * {
     box-sizing: border-box;
   }
 
   html {
     color: ${props => props.theme.text};
-    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    font-family: 'NanumSquare', 'Sans-serif';
     font-weight: 400;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -27,8 +44,8 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color 500ms ease;
   }
 
-  h1, h2, h3, b, strong {
-    color: ${props => hex2rgba(props.theme.text, 0.95)};
+  h1, h2, h3, h4, b, strong {
+    color: ${props => props.theme.text};
     font-weight: 700;
     transition: color 500ms ease;
   }
@@ -59,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
 
   p,
   li {
-    color: ${props => hex2rgba(props.theme.text, 0.85)};
+    color: ${props => hex2rgba(props.theme.text, 0.9)};
     word-break: break-word;
     transition: color 500ms ease;
   }

@@ -1,3 +1,3 @@
 exports.onClientEntry = () => {
-  require('./config/polyfill/from')
+  // require('./config/polyfill/from')
 }

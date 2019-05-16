@@ -12,6 +12,8 @@ const SIZES = {
 
   // Topbar related tweakpoints
   expandedSearch: { min: 1180, max: Infinity },
+
+  mobile: { min: 420, max: Infinity },
 }
 
 const baseTheme = {

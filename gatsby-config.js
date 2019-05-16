@@ -15,6 +15,8 @@ module.exports = {
         utils: `${__dirname}/src/utils`,
       },
     },
+    `gatsby-plugin-core-js`,
+    `gatsby-plugin-polyfill-io`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-styled-components-dark-mode`,
@@ -82,10 +84,10 @@ module.exports = {
         name: `ZEZE blog`,
         short_name: `ZEZE`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#F5F8F8`,
+        theme_color: `#F5F8F8`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

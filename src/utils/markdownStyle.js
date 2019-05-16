@@ -121,7 +121,6 @@ export default styled.div`
   > p:first-child {
     color: ${props => props.theme.subtle};
     font-size: 18px;
-    font-weight: 300;
 
     ${media.greaterThan('xlarge')} {
       font-size: 24px;

@@ -128,7 +128,6 @@ export const MarkdownWrap = styled.div`
   > p:first-child {
     color: ${props => props.theme.subtle};
     font-size: 18px;
-    font-weight: 300;
 
     ${media.greaterThan('xlarge')} {
       font-size: 24px;
@@ -256,7 +255,7 @@ export const MarkdownWrap = styled.div`
   ul {
     margin-top: 20px;
     padding-left: 20px;
-    color: ${props => hex2rgba(props.theme.text, 0.85)};
+    color: ${props => hex2rgba(props.theme.text, 0.9)};
     font-size: 16px;
 
     p {
