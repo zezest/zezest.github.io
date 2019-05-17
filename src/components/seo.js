@@ -53,11 +53,6 @@ function SEO({ description, lang, meta, keywords, title }) {
       <meta name="twitter:domain" content={site.siteMetadata.title} />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
 
-      {/* <link
-        href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
-        rel="stylesheet"
-        type="text/css"
-      /> */}
     </Helmet>
   )
 }
