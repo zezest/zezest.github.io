@@ -8,7 +8,6 @@ const AnchorListComponent = ({
   tocs, 
   active,
 }) => {
-  console.log(tocs)
   return (
     <ul className="anchor-list">
       {tocs.map(toc => {

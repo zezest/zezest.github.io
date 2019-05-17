@@ -21,6 +21,8 @@ const baseTheme = {
   error: '#ff6464',
   white: '#ffffff',
   black: '#000000',
+  codeBg: '#282c34',
+  darker: '#20232a',
 }
 
 module.exports = {
@@ -35,14 +37,15 @@ module.exports = {
       bg: '#3b6ef9',
       text: '#F5F8F8',
     },
-    codeBg: '#282c34',
-    darker: '#20232a',
+    
     textHighlight: '#3b6ef9',
     title: '#1a1a1a',
     text: '#333', // very dark grey / black substitute
     subtle: '#6d6d6d', // light grey for text
     divider: '#000', // opacity 0.2
+    card: '#fff',
   },
+  
   darkTheme: {
     ...baseTheme,
     main: {
@@ -54,14 +57,14 @@ module.exports = {
       bg: '#bf9fe0',
       text: '#3f3f4c',
     },
-    codeBg: '#282c34',
-    darker: '#20232a',
     textHighlight: '#bf9fe0',
     title: '#b3b8bc',
     text: '#f7f7f8',
     subtle: '#e9ebec',
     divider: '#fff', // opacity 0.2
+    card: '#282c34',
   },
+
   media: {
     between(smallKey, largeKey, excludeLarge = false) {
       if (excludeLarge) {

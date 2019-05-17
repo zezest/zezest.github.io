@@ -20,6 +20,7 @@ export default AnchorListComponent => {
       }
     }, [props.tocs])
 
+    
     useEffect(() => {
       if (Object.keys(pos).length > 0) {
         handleScroll()
@@ -30,6 +31,7 @@ export default AnchorListComponent => {
         }
       }
     }, [pos, handleScroll])
+
 
     const handleScroll = throttle(() => {
       const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;

@@ -112,18 +112,16 @@ export const Item = styled.li`
 
   > a {
     display: flex;
-    
     padding: 20px;
     justify-content: center;
     align-items: center;
     align-self: stretch;
     text-align: center;  
-    /* border: 1px solid #000; */
     border-radius: 5px;
 
     &:hover {
+      background-color: ${props => props.theme.card};
       box-shadow: 0 0 7px 3px ${props => hex2rgba(props.theme.hero.bg, 0.5)};
-      transition: box-shadow 200ms ease;
     }
   }
 

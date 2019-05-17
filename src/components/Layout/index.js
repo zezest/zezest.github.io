@@ -27,7 +27,9 @@ const Layout = ({
   )
 
   const isDark = theme.isDark.toString()
-  if (isDark !== localStorage.getItem('dark')) return <div></div>
+  const savedData = localStorage.getItem('dark')
+  if (isDark !== savedData && savedData !== null) return null
+  
   return (
     <>
       <Header siteTitle={site.siteMetadata.title} />
