@@ -116,7 +116,7 @@ export const Item = styled.li`
     justify-content: center;
     align-items: center;
     align-self: stretch;
-    text-align: center;  
+    text-align: center;
     border-radius: 5px;
 
     &:hover {

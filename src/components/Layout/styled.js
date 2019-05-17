@@ -117,3 +117,23 @@ export const Main = styled.main`
     max-width: 1000px;
   }
 `
+
+export const NotFoundMain = styled.main`
+  display: flex;
+  height: calc(100vh - 200px);
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+
+  ${media.lessThan('mobile')} {
+    height: calc(100vh - 160px);
+  }
+ 
+  ${media.greaterThan('medium')} {
+    width: 90%;
+  }
+
+  ${media.greaterThan('large')} {
+    max-width: 1000px;
+  }
+`
