@@ -5,7 +5,6 @@ const MoreContext = createContext([{}, () => {}])
 const MoreProvider = ({ children }) => {
   const [state, setState] = useState({
     active: false,
-    keyword: '',
   })
 
   return (

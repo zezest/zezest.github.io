@@ -5,8 +5,8 @@ import hex2rgba from 'hex2rgba'
 export const Search = styled.div`
   display: flex;
   height: 40px;
-  padding: 0 10px;
-  margin-bottom: 10px;
+  padding: 0 20px 0 10px;
+  margin-bottom: 7px;
   position: relative;
 `
 
@@ -26,33 +26,38 @@ export const Logo = styled.svg`
   stroke: ${props => hex2rgba(props.theme.text, 0.95)};
 `
 
-export const Input = styled.input`
-  flex: 1;
-  margin-right: 10px;
-  padding: 0 10px;
-  color: ${props => props.theme.text};
-  font-size: 16px;
-  border: 0;
-  background-color: ${props => props.theme.placeholder};
-  outline: none;
+export const AlgoliaLink = styled.a.attrs({
+  href: 'https://www.algolia.com',
+  target: '_blank',
+  rel: 'noopener noreferrer',
+})`
+  display: flex;
+  height: 20px;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: flex-end;
 `
 
-export const RemoveBtn = styled.button`
-  width: 40px;
-  height: 40px;
-  border: 0;
-  background-color: transparent;
-  outline: none;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  
-  > svg {
-    width: 16px;
-    height: 16px;
-    /* padding: 10px; */
-    fill: ${props => hex2rgba(props.theme.text, 0.95)};
-    /* box-sizing: content-box; */
+export const AlgoliaIcon = styled.svg`
+  width: 140px;
+  height: 20px;
+
+  path {
+    /* Search by */
+    &:nth-child(1) {
+      fill: ${props => props.theme.isDark ? '#FFF' : '#5468FF'};
+    }
+    /* 네모박스 */
+    &:nth-child(2) {  
+      fill: #5468FF;
+    }
+    /* 시계? 아이콘 */
+    &:nth-child(3) {  
+      fill: #FFF;
+    }
+    /* algolia */
+    &:nth-child(4) {
+      fill: ${props => props.theme.isDark ? '#FFF' : '#5D6494'}
+    }
   }
 `

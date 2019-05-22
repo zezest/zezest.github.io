@@ -4,6 +4,8 @@ import hex2rgba from 'hex2rgba'
 import { media } from 'src/theme'
 
 export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: ${props => props.theme.main.bg};
   position: fixed;
   top: 0;

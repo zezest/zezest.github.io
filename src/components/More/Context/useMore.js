@@ -13,25 +13,9 @@ const useMore = () => {
     }))
   }
 
-  function setKeyword(value) {
-    setState(state => ({
-      ...state,
-      keyword: value,
-    }))
-  }
-
-  function removeKeyword() {
-    setState(state => ({
-      ...state,
-      keyword: '',
-    }))
-  }
-
   return {
     ...state,
     toggleMenu,
-    setKeyword,
-    removeKeyword,
   }
 }
 

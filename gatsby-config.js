@@ -1,3 +1,24 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+console.log('NODE_ENV', process.env.NODE_ENV)
+const query = `{
+  allMarkdownRemark {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+}`
+
+const transformer = ({ data }) => data.allMarkdownRemark.edges.map(({ node }) => node)
+
 module.exports = {
   siteMetadata: {
     title: `ZEZE Blog`,
@@ -73,12 +94,21 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve:`gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID || '',
+        apiKey: process.env.ALGOLIA_ADMIN_KEY || '',
+        indexName: process.env.ALGOLIA_INDEX_NAME || '',
+        queries: [{ query, transformer }],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
+    // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

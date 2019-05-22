@@ -5,10 +5,10 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 15px 0 20px;
+  padding: 20px 0;
 `
 
-export const Menu = styled.li`
+export const Item = styled.li`
   padding: 0 20px 0 15px;
   position: relative;
 
@@ -30,25 +30,5 @@ export const Menu = styled.li`
     top: 5px;
     left: 0;
     bottom: 5px;
-  }
-`
-
-export const NoResult = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 40px 50%;
-
-  > p {
-    font-size: 20px;
-    text-align: center;
-
-    > b {
-      display: block;
-      margin-top: 10px;
-      font-size: 24px;
-    }
   }
 `

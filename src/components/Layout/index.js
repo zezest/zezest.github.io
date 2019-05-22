@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { withTheme } from 'styled-components'
 
+import withController from './Controller'
+
+import { compose } from 'utils/compose'
+
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
-import { 
-  Main, 
-  GlobalStyle } from './styled'
+import { Main, GlobalStyle } from './styled'
 
 const Layout = ({ 
   children,
@@ -26,10 +28,6 @@ const Layout = ({
     `
   )
 
-  const isDark = theme.isDark.toString()
-  const savedData = localStorage.getItem('dark')
-  if (isDark !== savedData && savedData !== null) return null
-  
   return (
     <>
       <Header siteTitle={site.siteMetadata.title} />
@@ -47,4 +45,7 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default withTheme(Layout)
+export default compose(
+  withTheme,
+  withController,
+)(Layout)

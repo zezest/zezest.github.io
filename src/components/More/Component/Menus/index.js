@@ -1,10 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { connectStateResults } from 'react-instantsearch-dom'
 
 import { MoreContext } from '../../Context'
 import useMore from '../../Context/useMore'
 
-import { List, Menu } from './styled'
+import CustomHits from './module/CustomHits'
+
+import {
+  List, Menu,
+  NoResult } from './styled'
 
 const MenuLink = ({
   children,
@@ -21,13 +26,31 @@ const MenuLink = ({
   )
 }
 
-const MenusComponent = () => {
-  
+const MenusComponent = ({
+  searchState, searchResults,
+}) => {
+  if (!searchState.attributeForMyQuery || searchState.attributeForMyQuery === '') {
+    return (
+      <List>
+        <MenuLink>devlog</MenuLink>
+      </List>
+    )
+  }
+
+  if (searchResults.nbHits === 0) {
+    return (
+      <NoResult>
+        <p>
+          No results found matching
+          <b>{searchState.attributeForMyQuery}</b>
+        </p>
+      </NoResult>
+    )
+  }
+
   return (
-    <List>
-      <MenuLink>devlog</MenuLink>
-    </List>
+    <CustomHits />
   )
 }
 
-export default MenusComponent
+export default connectStateResults(MenusComponent)

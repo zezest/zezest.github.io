@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import { withTheme } from 'styled-components'
+
+import withController from './Controller'
+
+import { compose } from 'utils/compose'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -12,10 +15,6 @@ const NotFoundLayout = ({
   children,
   theme,
 }) => {
-  const isDark = theme.isDark.toString()
-  const savedData = localStorage.getItem('dark')
-  if (isDark !== savedData && savedData !== null) return null
-  
   return (
     <>
       <Header />
@@ -33,4 +32,7 @@ NotFoundLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default withTheme(NotFoundLayout)
+export default compose(
+  withTheme,
+  withController,
+)(NotFoundLayout)
