@@ -8,7 +8,6 @@ export const Item = styled.li`
   padding-left: ${props => (props.level * space) + 16}px;
   font-size: 13px;
   line-height: 20px;
-  transition: color 500ms ease;
 
   & + li {
     margin-top: 5px;

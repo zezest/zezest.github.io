@@ -24,14 +24,32 @@ export const Header = styled.header`
   }
 `
 
-export const Logo = styled.h1`
-
-  svg {
-    fill: ${props => hex2rgba(props.theme.text, 0.95)};
-    stroke: ${props => hex2rgba(props.theme.text, 0.95)};
+export const LeftContent = styled.div`
+  display: flex;
+  align-items: center;
+  
+  > a {
+    > svg {
+      fill: ${props => hex2rgba(props.theme.text, 0.95)};
+    }
   }
 `
 
+export const Menus = styled.ul`
+  display: flex;
+
+  > li {
+    text-transform: uppercase;
+  }
+
+  > li + li {
+    margin-left: 15px;
+  }
+
+  ${media.lessThan('small')} {
+    display: none;
+  }
+`
 
 export const RightContent = styled.div`
   display: flex;
@@ -54,7 +72,6 @@ export const DarkModeLabel = styled.label`
   border-radius: 30px;
   background-color: ${props => props.theme.textHighlight};
   position: relative;
-  transition: background-color 500ms ease;
 
   > input[type=checkbox] {
     width: 1px;
@@ -74,7 +91,7 @@ export const ModeType = styled.div`
   position: absolute;
   top: 2px;
   left: ${props => props.theme.isDark ? '16px' : '2px'};
-  transition: left 500ms ease;
+  transition: left 200ms ease;
 
   > div {
     width: 100%;
@@ -82,7 +99,7 @@ export const ModeType = styled.div`
     position: relative;
     border-radius: 50%;
     box-shadow: inset 0 0 0 2px ${props => props.theme.main.bg};
-    transition: box-shadow 500ms ease;
+    transition: box-shadow 200ms ease;
 
     &:before {
       content: '';
@@ -99,7 +116,7 @@ export const ModeType = styled.div`
         border-radius: 50%;
         transform: translate(-10%,-40%) rotate(-35deg);
       `}
-      transition: transform 500ms ease, border-radius 500ms ease, background-color 500ms ease;
+      transition: transform 200ms ease, border-radius 200ms ease, background-color 200ms ease;
     }
   }
 `

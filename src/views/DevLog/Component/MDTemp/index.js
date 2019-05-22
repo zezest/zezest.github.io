@@ -5,11 +5,11 @@ import { withTheme } from 'styled-components'
 
 import { MarkdownWrap } from './styled'
 
-const MarkdownPageComponent = ({
+const MDTempComponent = ({
   mdRef, html,
 }) => {
   return (
-    <MarkdownWrap id="markdown" ref={mdRef} dangerouslySetInnerHTML={{ __html: html }} />
+    <MarkdownWrap ref={mdRef} dangerouslySetInnerHTML={{ __html: html }} />
   )
   // return (
   //   <MarkdownWrap>
@@ -18,4 +18,4 @@ const MarkdownPageComponent = ({
   // )
 }
 
-export default withTheme(MarkdownPageComponent)
+export default withTheme(MDTempComponent)

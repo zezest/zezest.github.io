@@ -111,7 +111,6 @@ export default styled.div`
   a:not(.anchor):not(.gatsby-resp-image-link) {
     color: ${props => props.theme.textHighlight};
     border-bottom: 1px solid ${props => hex2rgba(props.theme.textHighlight, 0.4)};
-    transition: color 500ms ease, border-bottom 500ms ease;
 
     &:hover {
       border-bottom: 0;
@@ -161,7 +160,6 @@ export default styled.div`
   li > code {
     color: ${props => props.theme.text};
     background: ${props => hex2rgba(props.theme.note, 0.3)};
-    transition: color 500ms ease;
   }
 
   p > a,
@@ -207,7 +205,6 @@ export default styled.div`
     padding-top: 40px;
     line-height: 1.2;
     border-top: 1px solid ${props => hex2rgba(props.theme.divider, 0.2)};
-    transition: color 500ms ease, border-top 500ms ease;
 
     &:first-child {
       border-top: 0;

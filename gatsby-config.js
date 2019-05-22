@@ -11,6 +11,7 @@ module.exports = {
       options: {
         src: `${__dirname}/src`,
         pages: `${__dirname}/src/pages`,
+        views: `${__dirname}/src/views`,
         components: `${__dirname}/src/components`,
         utils: `${__dirname}/src/utils`,
       },

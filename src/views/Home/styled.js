@@ -33,6 +33,10 @@ export const Hero = styled.div`
     margin-bottom: 20px;
   }
 
+  > p {
+    letter-spacing: 5px;
+  }
+
   > svg {
     fill: none;
     stroke: ${props => hex2rgba(props.theme.hero.text, 0.2)};
@@ -42,7 +46,7 @@ export const Hero = styled.div`
   
   ${media.greaterThan('medium')} {
     height: calc(100vw / 2);
-    max-height: 700px;
+    max-height: 600px;
 
     > h1 {
       font-size: 65px;

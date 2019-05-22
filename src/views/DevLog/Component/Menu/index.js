@@ -8,7 +8,7 @@ import AnchorList from './module/AnchorList'
 import {
   Wrap, Content, BtnWrap, Btn } from './styled'
 
-const PostMenuComponent = ({
+const MenuComponent = ({
   posts, active, tocs,
   tab,
   onClickToTab,
@@ -40,4 +40,4 @@ const PostMenuComponent = ({
   )
 }
 
-export default withController(PostMenuComponent)
+export default withController(MenuComponent)

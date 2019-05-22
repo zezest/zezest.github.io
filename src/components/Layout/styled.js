@@ -39,15 +39,13 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    /* background: url(${withPrefix('/images/pattern.svg')}) repeat; */
     background-color: ${props => props.theme.main.bg};
-    transition: background-color 500ms ease;
+    transition: background-color 66ms ease;
   }
 
   h1, h2, h3, h4, b, strong {
     color: ${props => props.theme.text};
     font-weight: 700;
-    transition: color 500ms ease;
   }
 
   h1 {
@@ -78,7 +76,6 @@ export const GlobalStyle = createGlobalStyle`
   li {
     color: ${props => hex2rgba(props.theme.text, 0.9)};
     word-break: break-word;
-    transition: color 500ms ease;
   }
 
   a {

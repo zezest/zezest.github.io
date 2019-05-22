@@ -37,13 +37,13 @@ module.exports = {
       bg: '#3b6ef9',
       text: '#F5F8F8',
     },
-    
     textHighlight: '#3b6ef9',
     title: '#1a1a1a',
     text: '#333', // very dark grey / black substitute
     subtle: '#6d6d6d', // light grey for text
     divider: '#000', // opacity 0.2
     card: '#fff',
+    placeholder: '#e6eeee',
   },
   
   darkTheme: {
@@ -63,6 +63,7 @@ module.exports = {
     subtle: '#e9ebec',
     divider: '#fff', // opacity 0.2
     card: '#282c34',
+    placeholder: '#33333e',
   },
 
   media: {

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import hex2rgba from 'hex2rgba'
 
 import { media } from 'src/theme'
 
@@ -7,8 +8,7 @@ export const Wrap = styled.div`
   margin-left: 40px;
   padding: 20px 0;
   box-sizing: border-box;
-  border-left: 1px solid ${props => props.theme.main.list};
-  transition: border-left 500ms ease;
+  border-left: 1px solid ${props => hex2rgba(props.theme.divider, 0.05)};
 
   ${media.lessThan('medium')} {
     display: none;

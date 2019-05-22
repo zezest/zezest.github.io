@@ -5,7 +5,6 @@ export const Item = styled.li`
   border-left: 4px solid transparent;
   padding-left: 16px;
   line-height: 20px;
-  transition: color 500ms ease, border-left 400ms ease;
 
   & + li {
     margin-top: 10px;
@@ -19,7 +18,6 @@ export const Item = styled.li`
 
   > a {
     color: ${props => hex2rgba(props.theme.text, 0.6)};
-    transition: color 100ms ease;
 
     &:hover {
       color: ${props => hex2rgba(props.theme.text, 0.8)};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default PostMenuComponent => {
+export default MenuComponent => {
   return ({ ...props }) => {
     const [tab, setTab] = useState('anchor')    // post, anchor
 
@@ -13,6 +13,6 @@ export default PostMenuComponent => {
       onClickToTab,
     }
 
-    return <PostMenuComponent {...props} {...state} />
+    return <MenuComponent {...props} {...state} />
   }
 }

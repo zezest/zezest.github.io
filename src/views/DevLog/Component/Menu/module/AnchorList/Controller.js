@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import throttle from 'lodash/throttle'
+
 export default AnchorListComponent => {
   return ({ ...props }) => {
     const [pos, setPos] = useState({})
