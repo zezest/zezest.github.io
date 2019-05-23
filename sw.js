@@ -1,85 +1,168 @@
----
-layout: null
----
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
 
-var filesToCache = [
-  "/",
-  {% for asset in site.static_files %} {% if asset.path contains '/assets/' %}
-  "{{ asset.path }}",
-  {% endif %}{% endfor %}
-  {% for post in site.posts %}
-  "{{ post.url }}",
-  {% endfor %}
-  {% for page in site.html_pages %}
-  "{{ page.url }}",
-  {% endfor %}
-];
+importScripts("workbox-v3.6.3/workbox-sw.js");
+workbox.setConfig({modulePathPrefix: "workbox-v3.6.3"});
 
-var CACHE_NAME = 'zeze-cache-v1';
+workbox.core.setCacheNameDetails({prefix: "gatsby-plugin-offline"});
 
-self.addEventListener('install', function(e) {
-  self.skipWaiting();
-  // console.log('[ServiceWorker] Install');
-  // Perform install steps
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      // console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
-    })
-  );
-});
+workbox.skipWaiting();
+workbox.clientsClaim();
 
-self.addEventListener("activate", function(e) {
-  // console.log('[ServiceWorker] Activate');
-  e.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName.startsWith("zeze-cache-") && cacheName != CACHE_NAME;
-        }).map(function(cacheName) {
-          // console.log('[ServiceWorker] Removing old cache', key);
-          return cache.delete(cacheName);
-        })
-      );
-    })
-  );
-});
+/**
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
+ */
+self.__precacheManifest = [
+  {
+    "url": "webpack-runtime-9240ec85f937eec7e4fb.js"
+  },
+  {
+    "url": "app-fbcc00911609ddd24344.js"
+  },
+  {
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-ce11f2f854c7f3f93583.js"
+  },
+  {
+    "url": "offline-plugin-app-shell-fallback/index.html",
+    "revision": "ab543b28ec2c6599df6183d03c03edc8"
+  },
+  {
+    "url": "0-9a5936580b90ad45bb02.js"
+  },
+  {
+    "url": "1-bb7b2ce7b2c6ff976b68.js"
+  },
+  {
+    "url": "component---src-pages-404-js-2e2e62765840ad7e6c48.js"
+  },
+  {
+    "url": "static/d/285/path---404-html-516-62a-0SUcWyAf8ecbYDsMhQkEfPzV8.json"
+  },
+  {
+    "url": "static/d/604/path---offline-plugin-app-shell-fallback-a-30-c5a-BawJvyh36KKFwbrWPg4a4aYuc8.json"
+  },
+  {
+    "url": "manifest.webmanifest",
+    "revision": "ac32716c4292c300a0aa35f47615d19c"
+  }
+].concat(self.__precacheManifest || []);
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      // Cache hit - return response
-      if (response) {
-        return response;
-      }
+workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, workbox.strategies.cacheFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, workbox.strategies.staleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, workbox.strategies.staleWhileRevalidate(), 'GET');
 
-      // IMPORTANT: Clone the request. A request is a stream and
-      // can only be consumed once. Since we are consuming this
-      // once by cache and once by the browser for fetch, we need
-      // to clone the response.
-      var fetchRequest = event.request.clone();
+/* global importScripts, workbox, idbKeyval */
 
-      return fetch(fetchRequest).then(
-        function(response) {
-          // Check if we received a valid response
-          if(!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
+importScripts(`idb-keyval-iife.min.js`)
+const WHITELIST_KEY = `custom-navigation-whitelist`
+
+const navigationRoute = new workbox.routing.NavigationRoute(({ event }) => {
+  const { pathname } = new URL(event.request.url)
+
+  return idbKeyval.get(WHITELIST_KEY).then((customWhitelist = []) => {
+    // Respond with the offline shell if we match the custom whitelist
+    if (customWhitelist.includes(pathname)) {
+      const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+      const cacheName = workbox.core.cacheNames.precache
+
+      return caches.match(offlineShell, { cacheName }).then(cachedResponse => {
+        if (cachedResponse) return cachedResponse
+
+        console.error(
+          `The offline shell (${offlineShell}) was not found ` +
+            `while attempting to serve a response for ${pathname}`
+        )
+
+        return fetch(offlineShell).then(response => {
+          if (response.ok) {
+            return caches.open(cacheName).then(cache =>
+              // Clone is needed because put() consumes the response body.
+              cache.put(offlineShell, response.clone()).then(() => response)
+            )
+          } else {
+            return fetch(event.request)
           }
+        })
+      })
+    }
 
-          // IMPORTANT: Clone the response. A response is a stream
-          // and because we want the browser to consume the response
-          // as well as the cache consuming the response, we need
-          // to clone it so we have two streams.
-          var responseToCache = response.clone();
+    return fetch(event.request)
+  })
+})
 
-          caches.open(CACHE_NAME)
-            .then(function(cache) {
-              cache.put(event.request, responseToCache);
-            });
+workbox.routing.registerRoute(navigationRoute)
 
-          return response;
-        }
-      );
+let updatingWhitelist = null
+
+function rawWhitelistPathnames(pathnames) {
+  if (updatingWhitelist !== null) {
+    // Prevent the whitelist from being updated twice at the same time
+    return updatingWhitelist.then(() => rawWhitelistPathnames(pathnames))
+  }
+
+  updatingWhitelist = idbKeyval
+    .get(WHITELIST_KEY)
+    .then((customWhitelist = []) => {
+      pathnames.forEach(pathname => {
+        if (!customWhitelist.includes(pathname)) customWhitelist.push(pathname)
+      })
+
+      return idbKeyval.set(WHITELIST_KEY, customWhitelist)
     })
-  );
-});
+    .then(() => {
+      updatingWhitelist = null
+    })
+
+  return updatingWhitelist
+}
+
+function rawResetWhitelist() {
+  if (updatingWhitelist !== null) {
+    return updatingWhitelist.then(() => rawResetWhitelist())
+  }
+
+  updatingWhitelist = idbKeyval.set(WHITELIST_KEY, []).then(() => {
+    updatingWhitelist = null
+  })
+
+  return updatingWhitelist
+}
+
+const messageApi = {
+  whitelistPathnames(event) {
+    let { pathnames } = event.data
+
+    pathnames = pathnames.map(({ pathname, includesPrefix }) => {
+      if (!includesPrefix) {
+        return `${pathname}`
+      } else {
+        return pathname
+      }
+    })
+
+    event.waitUntil(rawWhitelistPathnames(pathnames))
+  },
+
+  resetWhitelist(event) {
+    event.waitUntil(rawResetWhitelist())
+  },
+}
+
+self.addEventListener(`message`, event => {
+  const { gatsbyApi } = event.data
+  if (gatsbyApi) messageApi[gatsbyApi](event)
+})
