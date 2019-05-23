@@ -13,7 +13,7 @@ export const Wrap = styled.div`
   right: 0;
   bottom: 0;
   z-index: 5;
-  transform: ${props => props.isActive ? `translateY(0%)` : `translateY(100%)`};
+  transform: ${props => props.isActive ? `translateY(0%)` : `translateY(150%)`};
   transition: transform 250ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
   ${media.greaterThan('small')} {

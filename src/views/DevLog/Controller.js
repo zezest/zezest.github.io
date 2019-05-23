@@ -34,15 +34,11 @@ export default DevLogComponent => ({ ...props }) => {
   const posts = allMarkdownRemark.edges
 
   useEffect(() => {
-    const isDark = props.theme.isDark.toString()
-    if (isDark === localStorage.getItem('dark')) {
+    const newToc = new buildToc(mdDom.current, {
+      selector: 'h1,h2,h3,h4',
+    })
 
-      const newToc = new buildToc(mdDom.current, {
-        selector: 'h1,h2,h3,h4',
-      })
-
-      setToc(newToc)
-    }
+    setToc(newToc)
   }, [props.theme.isDark])
 
   const state = {

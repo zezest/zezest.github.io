@@ -39,7 +39,7 @@ const HeaderComponent = () => {
         <DarkModeLabel>
           <input type="checkbox" 
             checked={isDark}
-            onChange={() => toggleDark()} />
+            onChange={toggleDark} />
           <ModeType isDark={isDark}>
             <div />
           </ModeType>

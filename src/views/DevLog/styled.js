@@ -18,6 +18,7 @@ export const Post = styled.article`
   flex-basis: auto;
   justify-content: flex-start;
   align-items: stretch;
+  width: 100%;
   max-width: 750px;
 `
 

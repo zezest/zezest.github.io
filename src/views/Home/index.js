@@ -16,7 +16,7 @@ const HomeComponent = () => {
           edges {
             node {
               id
-              excerpt(pruneLength: 100)
+              excerpt(pruneLength: 95)
               fields {
                 slug
                 date(formatString: "YYYY.MM.DD")
@@ -57,7 +57,6 @@ const HomeComponent = () => {
                     <h1>{post.frontmatter.title}</h1>
                     <p>{post.fields.date}</p>
                   </ItemHeader>
-                  <p>{post.excerpt}</p>
                 </div>
               </Link>
             </Item>

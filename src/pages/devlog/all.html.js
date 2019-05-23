@@ -4,6 +4,10 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Layout from 'components/Layout'
 import SEO from 'components/seo'
 
+import { 
+  Wrap, Title, 
+  List, Item, ItemHeader } from './styled'
+
 const AllBlogPosts = () => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
@@ -35,19 +39,26 @@ const AllBlogPosts = () => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       
-      <ul>
-        {posts.map((post, idx) => {
-          return (
-            <li key={post.id}>
-              <Link to={post.fields.slug}>
-                <p>{idx + 1}</p>
-                <h1>{post.frontmatter.title}</h1>
-                <p>{post.fields.date}</p>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+      <Wrap>
+        <Title>dev list</Title>
+  
+        <List>
+          {posts.map((post, idx) => {
+            return (
+              <Item key={post.id}>
+                <Link to={post.fields.slug}>
+                  <div>
+                    <ItemHeader>
+                      <h1>{post.frontmatter.title}</h1>
+                      <p>{post.fields.date}</p>
+                    </ItemHeader>
+                  </div>
+                </Link>
+              </Item>
+            )
+          })}
+        </List>
+      </Wrap>
     </Layout>
   )
 }

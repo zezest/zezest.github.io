@@ -28,6 +28,7 @@ export const MarkdownWrap = styled.div`
   > h5 {
     display: flex;
     position: relative;
+    word-break: break-all;
     
     .anchor {
       padding-right: 0;

@@ -131,13 +131,12 @@ export const Item = styled.li`
 
   ${media.greaterThan('mobile')} {
     > a {
-      min-height: 210px;
+      min-height: 150px;
     }
   }
 `
 
 export const ItemHeader = styled.div`
-  margin-bottom: 20px;
 
   h1 {
     margin-bottom: 10px;

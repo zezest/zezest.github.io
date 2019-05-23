@@ -100,8 +100,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
 export const Main = styled.main`
   display: flex;
+  flex: 1;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px 5rem;
   align-items: center;
@@ -117,6 +125,8 @@ export const Main = styled.main`
 
 export const NotFoundMain = styled.main`
   display: flex;
+  flex: 1;
+  width: 100%;
   height: calc(100vh - 200px);
   margin: 0 auto;
   padding: 0 20px;

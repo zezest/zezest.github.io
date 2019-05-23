@@ -5,6 +5,7 @@ import { media } from 'src/theme'
 
 export const Header = styled.header`
   display: flex;
+  width: 100%;
   height: 100px;
   margin: 0 auto;
   padding: 0 20px;

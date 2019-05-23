@@ -11,8 +11,6 @@ const defaultState = {
 
 const ThemeManagerContext = createContext(defaultState)
 
-const { localStorage } = window
-
 const defaultOptions = {
   isDark: false,
 }
@@ -26,11 +24,11 @@ const ThemeManagerProvider = ({
   const toggleDark = () => {
     const toggledTheme = !isDark
     setIsDark(toggledTheme)
-    localStorage.setItem('dark', JSON.stringify(toggledTheme))
+    window.localStorage.setItem('dark', JSON.stringify(toggledTheme))
   }
 
   useEffect(() => {
-    const localStorageTheme = localStorage.getItem('dark')
+    const localStorageTheme = window.localStorage.getItem('dark')
     const latestTheme = localStorageTheme && JSON.parse(localStorageTheme)
 
     if (latestTheme !== null) {
