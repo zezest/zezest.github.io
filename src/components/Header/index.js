@@ -4,6 +4,8 @@ import { Link } from 'gatsby'
 import { ThemeManagerContext } from '../ThemeManager'
 import More from '../More'
 
+import SearchBox from './Component/Search'
+
 import { 
   Header, 
   LeftContent, Menus,
@@ -35,6 +37,8 @@ const HeaderComponent = () => {
       </LeftContent>
 
       <RightContent>
+        <SearchBox />
+        
         <p>{isDark ? 'dark mode' : 'light mode'}</p>
         <DarkModeLabel>
           <input type="checkbox" 

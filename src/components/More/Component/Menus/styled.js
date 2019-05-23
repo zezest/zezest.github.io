@@ -20,6 +20,10 @@ export const Menu = styled.li`
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 1px solid ${props => hex2rgba(props.theme.placeholder, 1)};
+    
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &::before {

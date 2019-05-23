@@ -38,6 +38,7 @@ export const LeftContent = styled.div`
 
 export const Menus = styled.ul`
   display: flex;
+  margin-left: 100px;
 
   > li {
     text-transform: uppercase;
@@ -45,6 +46,10 @@ export const Menus = styled.ul`
 
   > li + li {
     margin-left: 15px;
+  }
+
+  ${media.lessThan('medium')} {
+    margin-left: 50px;
   }
 
   ${media.lessThan('small')} {

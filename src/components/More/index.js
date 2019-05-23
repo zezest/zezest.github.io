@@ -1,5 +1,5 @@
 import React from 'react'
-import { InstantSearch, Hits, Highlight } from 'react-instantsearch-dom'
+import { InstantSearch } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 
 import { MoreProvider } from './Context'
@@ -13,13 +13,15 @@ const searchClient = algoliasearch(
 )
 
 const MoreComponent = () => {
+  const name = process.env.NODE_ENV === 'production' ? 'prod_BLOG' : 'dev_BLOG'
+
   return (
     <MoreProvider>
       <MenuBtn />
 
       <InstantSearch 
         searchClient={searchClient}
-        indexName="dev_BLOG">
+        indexName={name}>
           
         <Panel />
       </InstantSearch>
