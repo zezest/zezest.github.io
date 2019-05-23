@@ -1,0 +1,51 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import { withTheme } from 'styled-components'
+
+import withController from './Controller'
+
+import { compose } from 'utils/compose'
+
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+
+import { Main, GlobalStyle } from './styled'
+
+const Layout = ({ 
+  children,
+  theme,
+}) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+
+  return (
+    <>
+      <Header siteTitle={site.siteMetadata.title} />
+  
+      <Main>{children}</Main>
+      
+      <Footer />
+
+      <GlobalStyle />
+    </>
+  )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default compose(
+  withTheme,
+  withController,
+)(Layout)
