@@ -21,6 +21,7 @@ module.exports = {
     siteUrl: `https://zeze.dev`,
     author: `zeze`,
     description: `ZEZE Blog`,
+    image: `/images/metaImg.png`,
   },
   plugins: [
     {
