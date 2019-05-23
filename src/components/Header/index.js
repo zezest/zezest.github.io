@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode'
 
+import { ThemeManagerContext } from '../ThemeManager'
 import More from '../More'
 
 import { 
@@ -10,8 +10,8 @@ import {
   RightContent, DarkModeLabel, ModeType } from './styled'
   
 const HeaderComponent = () => {
-  const themeContext = useContext(ThemeManagerContext)
-  const isDark = themeContext.isDark
+  const [isDark, toggleDark] = useContext(ThemeManagerContext)
+
   return (
     <Header>
       <LeftContent>
@@ -37,7 +37,9 @@ const HeaderComponent = () => {
       <RightContent>
         <p>{isDark ? 'dark mode' : 'light mode'}</p>
         <DarkModeLabel>
-          <input type="checkbox" onChange={themeContext.toggleDark} checked={isDark} />
+          <input type="checkbox" 
+            checked={isDark}
+            onChange={() => toggleDark()} />
           <ModeType isDark={isDark}>
             <div />
           </ModeType>

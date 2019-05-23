@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { MoreContext } from '../../Context'
 import useMore from '../../Context/useMore'
 
 import { MenuIcon } from './styled'
 
 const MenuBtnComponent = () => {
-  const { toggleMenu } = useMore(MoreContext)
+  const { toggleMenu } = useMore()
   // 3 : 2
   return (
     <MenuIcon viewBox="0 0 18 12" onClick={() => toggleMenu(true)}>

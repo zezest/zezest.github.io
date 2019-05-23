@@ -35,16 +35,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-core-js`,
     `gatsby-plugin-polyfill-io`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-styled-components-dark-mode`,
-      options: {
-        light: require(`${__dirname}/src/theme.js`).lightTheme,
-        dark: require(`${__dirname}/src/theme.js`).darkTheme,
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
