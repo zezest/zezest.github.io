@@ -1,7 +1,3 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-console.log('NODE_ENV', process.env.NODE_ENV)
 const query = `{
   allMarkdownRemark {
     edges {
@@ -27,6 +23,7 @@ module.exports = {
     description: `ZEZE Blog`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -121,7 +118,6 @@ module.exports = {
         icon: `static/images/icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
