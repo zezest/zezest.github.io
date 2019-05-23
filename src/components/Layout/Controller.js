@@ -5,11 +5,12 @@ export default LayoutComponent => {
     const [savedMode, setMode] = useState('')
 
     useEffect(() => {
-      const savedData = localStorage.getItem('dark') || ''
+      const savedData = localStorage.getItem('dark') || 'false'
       setMode(savedData)
     }, [props.theme.isDark])
     
     const isDark = props.theme.isDark.toString()
+
     if (isDark !== savedMode && savedMode !== null) return null
 
     return <LayoutComponent {...props} />
