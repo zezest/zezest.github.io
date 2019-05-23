@@ -33,10 +33,10 @@ module.exports = {
         utils: `${__dirname}/src/utils`,
       },
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-core-js`,
     `gatsby-plugin-polyfill-io`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-styled-components-dark-mode`,
       options: {
@@ -99,12 +99,12 @@ module.exports = {
         queries: [{ query, transformer }],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-117842446-1`,
+      },
+    },
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
