@@ -3,7 +3,6 @@
   "description": "zeze blog",
   "version": "2.0.0",
   "author": "zezest <zeze.lsg@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby clean && gatsby develop",
@@ -17,7 +16,6 @@
     "algoliasearch": "^3.33.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.10.0",
-    "dotenv": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-config-fbjs": "^3.1.0",
     "eslint-config-react": "^1.1.7",
@@ -53,7 +51,6 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
     "hex2rgba": "^0.0.1",
-    "htmlparser2": "^3.10.1",
     "lodash": "^4.17.11",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
@@ -61,7 +58,6 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-instantsearch-dom": "^5.6.0",
-    "react-scrollspy": "^3.4.0",
     "styled-components": "^4.2.0",
     "styled-reset": "^2.0.10"
   },
