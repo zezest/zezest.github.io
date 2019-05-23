@@ -35,8 +35,8 @@ module.exports = {
     },
     `gatsby-plugin-core-js`,
     `gatsby-plugin-polyfill-io`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-styled-components-dark-mode`,
       options: {
@@ -99,12 +99,12 @@ module.exports = {
         queries: [{ query, transformer }],
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
