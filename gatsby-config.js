@@ -23,7 +23,6 @@ module.exports = {
     description: `ZEZE Blog`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -36,6 +35,7 @@ module.exports = {
     },
     `gatsby-plugin-core-js`,
     `gatsby-plugin-polyfill-io`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-styled-components-dark-mode`,
