@@ -5,11 +5,13 @@ module.exports = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [
-        resolve(__dirname, '../../src'),
-        resolve(__dirname, '../../node_modules'),
+        resolve(__dirname, '../plugins'),
+        resolve(__dirname, '../src'),
+        resolve(__dirname, '../node_modules'),
       ],
       alias: {
-        'react-dom': '@hot-loader/react-dom'
+        'dark-mode': '../plugins/gatsby-styled-components-dark-mode',
+        'react-dom': '@hot-loader/react-dom',
       },
     },
     // See https://github.com/FormidableLabs/react-live/issues/5

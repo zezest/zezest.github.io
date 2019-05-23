@@ -1,18 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+
+import { ThemeManagerProvider } from 'components/ThemeManager'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+
+import { GlobalStyle } from './styled'
 
 export default LayoutComponent => {
   return ({ ...props }) => {
-    const [savedMode, setMode] = useState('')
+    const { site } = useStaticQuery(
+      graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
+          }
+        }
+      `
+    )
 
-    useEffect(() => {
-      const savedData = localStorage.getItem('dark') || 'false'
-      setMode(savedData)
-    }, [props.theme.isDark])
-    
-    const isDark = props.theme.isDark.toString()
+    return (
+      <ThemeManagerProvider>
+        <>
+          <Header siteTitle={site.siteMetadata.title} />
+          <LayoutComponent {...props} />
+          <Footer />
+          <GlobalStyle />
+        </>
+      </ThemeManagerProvider>
 
-    if (isDark !== savedMode && savedMode !== null) return null
-
-    return <LayoutComponent {...props} />
+    )
   }
 }
