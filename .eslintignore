@@ -5,6 +5,3 @@ content/*
 
 # Ignore built files
 public/*
-
-# Ignore examples
-examples/*
