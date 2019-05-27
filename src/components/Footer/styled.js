@@ -9,8 +9,13 @@ export const Footer = styled.footer`
   margin-top: auto;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   ${media.lessThan('mobile')} {
     height: 100px;
+  }
+
+  > p {
+    line-height: 25px;
   }
 `
