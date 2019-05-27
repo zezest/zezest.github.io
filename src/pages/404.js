@@ -7,7 +7,7 @@ import NotFound from 'views/404'
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="Page Not found" />
+    <SEO title="페이지를 찾을 수 없습니다." />
     <NotFound />
   </Layout>
 )

@@ -8,7 +8,7 @@ import Home from 'views/Home'
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="ZEZE 블로그" keywords={[`blog`, `zeze`, `devlog`]} />
       <Home />
     </Layout>
   )

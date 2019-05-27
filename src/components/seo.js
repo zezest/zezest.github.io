@@ -39,7 +39,7 @@ function SEO({ description, lang, keywords, title }) {
       <meta name="keywords" content={keywords.length > 0 ? keywords.join(', ') : ''} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={`${title} - ${site.siteMetadata.title}`} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:url" content={site.siteMetadata.siteUrl} />
       <meta property="og:image" content={site.siteMetadata.image} />
