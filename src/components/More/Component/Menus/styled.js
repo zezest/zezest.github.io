@@ -8,6 +8,31 @@ export const List = styled.ul`
   padding: 15px 0 20px;
 `
 
+export const Item = styled.li`
+  padding: 0 20px 0 15px;
+  position: relative;
+
+  > a {
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid ${props => hex2rgba(props.theme.placeholder, 1)};
+  }
+
+  &::before {
+    content: '';
+    width: 5px;
+    background-color: ${props => hex2rgba(props.theme.hero.bg, 0.8)};
+    position: absolute;
+    top: 5px;
+    left: 0;
+    bottom: 5px;
+  }
+`
+
 export const Menu = styled.li`
   padding: 0 20px 0 15px;
   position: relative;
@@ -46,13 +71,7 @@ export const NoResult = styled.div`
   padding: 10px 40px 50%;
 
   > p {
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-
-    > b {
-      display: block;
-      margin-top: 10px;
-      font-size: 24px;
-    }
   }
 `

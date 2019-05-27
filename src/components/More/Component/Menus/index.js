@@ -1,20 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { connectStateResults } from 'react-instantsearch-dom'
 
-import { MoreContext } from '../../Context'
-import useMore from '../../Context/useMore'
+import Highlight from 'components/Highlight'
 
-import CustomHits from './module/CustomHits'
-
-import {
-  List, Menu,
-  NoResult } from './styled'
+import { List, Item, Menu, NoResult } from './styled'
 
 const MenuLink = ({
   children,
+  toggleMenu,
 }) => {
-  const { toggleMenu } = useMore(MoreContext)
   return (
     <Menu>
       <Link 
@@ -27,30 +21,36 @@ const MenuLink = ({
 }
 
 const MenusComponent = ({
-  searchState, searchResults,
+  keyword, hits,
+  toggleMenu,
 }) => {
-  if (!searchState.attributeForMyQuery || searchState.attributeForMyQuery === '') {
+  if (keyword === '') {
     return (
       <List>
-        <MenuLink>devlog</MenuLink>
+        <MenuLink toggleMenu={toggleMenu}>devlog</MenuLink>
       </List>
     )
   }
 
-  if (searchResults.nbHits === 0) {
+  if (keyword !== '' && hits.length <= 0) {
     return (
       <NoResult>
-        <p>
-          No results found matching
-          <b>{searchState.attributeForMyQuery}</b>
-        </p>
+        <p>검색결과를 찾을 수 없습니다.</p>
       </NoResult>
     )
   }
 
   return (
-    <CustomHits />
+    <List>
+      {hits.map(hit => (
+        <Item key={hit.objectID}>
+          <Link to={hit.fields.slug}>
+            <Highlight hit={hit} tagName="mark" attribute="frontmatter.title" />
+          </Link>
+        </Item>
+      ))}
+    </List>
   )
 }
 
-export default connectStateResults(MenusComponent)
+export default MenusComponent
