@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { withPrefix } from 'gatsby'
 import hex2rgba from 'hex2rgba'
 
-import { media } from 'src/theme'
+import { media } from 'utils/theme'
 
 export const GlobalState = createGlobalStyle`
   body {

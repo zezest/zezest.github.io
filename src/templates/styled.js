@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { media } from 'src/theme'
+import { media } from 'utils/theme'
 
 export const Wrap = styled.div`
   display: flex;

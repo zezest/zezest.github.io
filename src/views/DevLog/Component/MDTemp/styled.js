@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import hex2rgba from 'hex2rgba'
 
-import { media } from 'src/theme'
+import { media } from 'utils/theme'
 
 const prismColors = {
   char: '#D8DEE9',

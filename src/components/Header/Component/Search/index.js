@@ -22,7 +22,7 @@ const SearchComponent = ({
       </SearchIcon>
 
       <Input
-        type="search"
+        type="text"
         value={keyword}
         onChange={onChangeToKeyword} />
 

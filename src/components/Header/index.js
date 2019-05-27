@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 
-import { ThemeManagerContext } from '../ThemeManager'
+import { ThemeManagerContext } from 'context/ThemeContext'
 import More from '../More'
 
 import SearchBox from './Component/Search'

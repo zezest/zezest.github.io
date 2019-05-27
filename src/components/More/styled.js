@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import hex2rgba from 'hex2rgba'
 
-import { media } from 'src/theme'
+import { media } from 'utils/theme'
 
 export const MenuIcon = styled.svg`
   width: 21px;
@@ -105,7 +105,7 @@ export const SearchIcon = styled.svg`
 
 export const Input = styled.input`
   width: ${props => props.value !== '' ? '100%' : 0};
-  height: 100%;
+  height: 40px;
   padding: ${props => props.value !== '' ? '0 40px 0 35px' : 0};
   color: ${props => props.theme.text};
   font-size: 16px;

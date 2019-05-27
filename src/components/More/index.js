@@ -38,7 +38,7 @@ const MoreComponent = ({
         <SearchForm action="" role="search">
           <Label>
             <Input
-              type="search"
+              type="text"
               value={keyword}
               onChange={onChangeToKeyword} />
   

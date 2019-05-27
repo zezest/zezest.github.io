@@ -27,10 +27,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        src: `${__dirname}/src`,
-        pages: `${__dirname}/src/pages`,
         views: `${__dirname}/src/views`,
         components: `${__dirname}/src/components`,
+        context: `${__dirname}/src/context`,
         utils: `${__dirname}/src/utils`,
       },
     },

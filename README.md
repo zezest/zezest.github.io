@@ -1,5 +1,14 @@
 # ZEZE Blog
 
-build -> gatsby
+# Dev, Build
+- react 16.8+
+- gatsby
 
-deploy -> netlify
+# Deploy
+- netlify
+
+## 지원
+- 검색 (algolia)
+- toc
+- dark mode
+- 반응형

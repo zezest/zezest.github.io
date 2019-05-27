@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import hex2rgba from 'hex2rgba'
 
-import { media } from 'src/theme'
+import { media } from 'utils/theme'
 
 export const Header = styled.header`
   display: flex;
