@@ -1,7 +1,7 @@
-const {resolve} = require('path')
+const { resolve } = require('path')
 
 module.exports = async ({ graphql, actions }) => {
-  const {createPage, createRedirect} = actions
+  const { createPage, createRedirect } = actions
 
   // Used to detect and prevent duplicate redirects
   const redirectToSlugMap = {}
