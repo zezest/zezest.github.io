@@ -17,10 +17,10 @@ const transformer = ({ data }) => data.allMarkdownRemark.edges.map(({ node }) =>
 
 module.exports = {
   siteMetadata: {
-    title: `ZEZE Blog`,
+    title: `ZEZE 블로그`,
     siteUrl: `https://zeze.dev`,
     author: `zeze`,
-    description: `ZEZE Blog`,
+    description: `ZEZE 블로그`,
     image: `/images/metaImg.png`,
   },
   plugins: [

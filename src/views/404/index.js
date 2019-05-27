@@ -19,7 +19,7 @@ const NotFoundComponent = () => {
 
       <Content>
         <div>
-          <h1>NOT FOUND</h1>
+          <h1>PAGE NOT FOUND</h1>
           <p>We couldn't find what you were looking for.</p>
         </div>
       </Content>

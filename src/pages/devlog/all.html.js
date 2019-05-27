@@ -35,7 +35,7 @@ const AllBlogPosts = () => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="DEVLOG" keywords={[`gatsby`, `application`, `react`]} />
       
       <DevLogList posts={posts} />
     </Layout>
