@@ -42,6 +42,10 @@ export const Menus = styled.ul`
 
   > li {
     text-transform: uppercase;
+
+    > a:hover {
+      color: ${props => props.theme.textHighlight};
+    }
   }
 
   > li + li {
