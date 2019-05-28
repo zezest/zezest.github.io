@@ -55,9 +55,6 @@ function SEO({ description, lang, keywords, title }) {
       <meta name="twitter:image" content={site.siteMetadata.image} />
       <meta name="twitter:domain" content={site.siteMetadata.title} />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
-
-      <meta name="naver-site-verification" content="dcdae359fa38d0743a893e3ce03b3dec33a076fe"/>
-
     </Helmet>
   )
 }
