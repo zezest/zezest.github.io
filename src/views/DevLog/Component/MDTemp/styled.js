@@ -1,26 +1,39 @@
 import styled from 'styled-components'
+import { withPrefix } from 'gatsby'
 import hex2rgba from 'hex2rgba'
 
 import { media } from 'utils/theme'
 
 const prismColors = {
   char: '#D8DEE9',
-  comment: '#B2B2B2',
-  keyword: '#c5a5c5',
+  comment: '#57a64a',
+  keyword: '#569CD6',
   lineHighlight: '#353b45',
   primitive: '#5a9bcf',
-  string: '#8dc891',
-  variable: '#d7deea',
+  string: '#d69d85',
+  number: '#b5cea8',
+  variable: '#9CDCFE',
+  constant: '#4EC9B0',
+  entity: '#b5cea8',
   boolean: '#ff8b50',
-  punctuation: '#88C6BE',
-  tag: '#fc929e',
-  function: '#79b6f2',
-  className: '#FAC863',
-  method: '#6699CC',
-  operator: '#fc929e',
+  punctuation: '#fff',
+  tag: '#569cd6',
+  className: '#dcd2a1',
+  method: '#DCDCAA',
+  parameter: '#9CDCFE',
+  operator: '#D8D8D8',
 }
 
 export const MarkdownWrap = styled.div`
+  @font-face {
+    font-family: 'Fira Code';
+    font-weight: 400;
+    src: local('Fira Code'),
+      url(${withPrefix('fonts/FiraCode-Regular.woff2')}) format('woff2'),
+      url(${withPrefix('fonts/FiraCode-Regular.woff')}) format('woff'),
+      url(${withPrefix('fonts/FiraCode-Regular.ttf')}) format('truetype');
+  }
+
   > h1, 
   > h2,
   > h3,
@@ -79,13 +92,18 @@ export const MarkdownWrap = styled.div`
     }
   }
 
+  .gatsby-highlight code[class*="gatsby-code-js"],
+  .gatsby-highlight pre[class*="gatsby-code-js"] {
+    color: ${prismColors.parameter};
+  }
+
   .gatsby-highlight code[class*="gatsby-code-"],
   .gatsby-highlight pre[class*="gatsby-code-"],
   .gatsby-highlight pre.prism-code {
     height: auto !important;
     margin: 1rem 0;
     font-size: 14px;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     line-height: 1.5;
     white-space: pre-wrap;
     word-break: break-all;
@@ -338,7 +356,7 @@ export const MarkdownWrap = styled.div`
 
 
   .token.attr-name {
-    color: ${prismColors.keyword};
+    color: ${prismColors.punctuation};
   }
 
   .token.comment,
@@ -350,12 +368,14 @@ export const MarkdownWrap = styled.div`
   }
 
   .token.property,
-  .token.number,
   .token.function-name,
-  .token.constant,
   .token.symbol,
   .token.deleted {
     color: ${prismColors.primitive};
+  }
+
+  .token.constant {
+    color: ${prismColors.constant};
   }
 
   .token.boolean {
@@ -366,8 +386,16 @@ export const MarkdownWrap = styled.div`
     color: ${prismColors.tag};
   }
 
+  .token.number {
+    color: ${prismColors.number}
+  }
+
   .token.string {
     color: ${prismColors.string};
+  }
+
+  .token.plain-text {
+    color: #fff;
   }
 
   .token.punctuation {
@@ -382,11 +410,20 @@ export const MarkdownWrap = styled.div`
   }
 
   .token.function {
-    color: ${prismColors.function};
+    color: ${prismColors.method};
   }
 
-  .token.operator,
-  .token.entity,
+  .token.parameter {
+    color: ${prismColors.parameter};
+  }
+
+  .token.operator {
+    color: ${prismColors.operator};
+  }
+
+  .token.entity {
+    color: ${prismColors.entity};
+  }
   .token.url,
   .token.variable {
     color: ${prismColors.variable};

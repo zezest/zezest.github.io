@@ -41,6 +41,15 @@ export default DevLogComponent => ({ ...props }) => {
     setToc(newToc)
   }, [props.theme.isDark])
 
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      document.querySelector(hash).scrollIntoView({ 
+        behavior: 'smooth',
+      })
+    }
+  }, [mdDom])
+
   const state = {
     mdDom, 
     tocs,

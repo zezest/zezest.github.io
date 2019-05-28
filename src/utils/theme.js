@@ -21,7 +21,7 @@ const baseTheme = {
   error: '#ff6464',
   white: '#ffffff',
   black: '#000000',
-  codeBg: '#282c34',
+  codeBg: '#1E1E1E',
   darker: '#20232a',
 }
 
@@ -30,8 +30,6 @@ module.exports = {
     ...baseTheme,
     main: {
       bg: '#F5F8F8',
-      title: '#3b6ef9',
-      list: '#e6eeee',
     },
     hero: {
       bg: '#3b6ef9',
@@ -49,21 +47,19 @@ module.exports = {
   darkTheme: {
     ...baseTheme,
     main: {
-      bg: '#3f3f4c',
-      title: '#bf9fe0',
-      list: '#4b4b5a',
+      bg: '#2B2D2E',
     },
     hero: {
-      bg: '#bf9fe0',
-      text: '#3f3f4c',
+      bg: '#c097e5',
+      text: '#2B2D2E',
     },
-    textHighlight: '#bf9fe0',
+    textHighlight: '#c097e5',
     title: '#b3b8bc',
     text: '#f7f7f8',
     subtle: '#e9ebec',
     divider: '#fff', // opacity 0.2
-    card: '#282c34',
-    placeholder: '#33333e',
+    card: '#222424',
+    placeholder: '#1E1E1E',
   },
 
   media: {
